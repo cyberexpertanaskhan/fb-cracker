@@ -65,7 +65,7 @@ return array(
 		/**
 		 *Set the default controller
 		 */
-		'controller' => 'Home',
+		'controller' => 'Videos',
 		/**
 		 *Set default action
 		 */
