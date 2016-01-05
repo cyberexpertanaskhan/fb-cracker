@@ -1,4 +1,5 @@
 @include('header')
+@include('videos/menu-bar')
 
 <!-- Simple Dashboard - START -->
 
@@ -14,38 +15,22 @@
 
         </div>
 
-        <div class="col-md-12 col-sm-12">
+        <div class="col-md-4 col-sm-4">
 
-                    @if(isset($videos) AND count($videos) > 0)
+        	@foreach($video as $videoInfo)
 
-                    <table class="table table-hover table-striped">
+            <form method="post" action="{{Url::link('videos/edit')}}">
+            	<input type="hidden" name="id" class="hidden" value="{{$videoInfo->id}}" />
 
-                        <thead>
-                            <th>Name </th><th>Description</th><th>Url</th><th>Date Created</th><th>Edit</th><th>Remove</th>
-                        </thead>
+                <div class="col-md-12"><br><br> <input name="video_name" type="text" class="form-control" placeholder="Name" value="{{$videoInfo->name}}" required/></div>
+                <div class="col-md-12"><br><br> <input name="video_url" type="url" class="form-control" placeholder="Url"  value="{{$videoInfo->url}}" required/></div>
+                <div class="col-md-12"><br><br> <textarea class="form-control" name="video_description" placeholder="Description">{{$videoInfo->description}}</textarea></div>
+                <div class="col-md-12"><br><br> <input name="video_comments" type="text" class="form-control" placeholder="Comments" value="{{$videoInfo->comments}}"/></div>
+                <div class="col-md-12"><br><br> <button name="submit" type="submit" class="btn btn-success"/>Update</button></div>
 
-                        <tbody>
+            </form>
 
-
-                        @foreach($videos as $video)
-
-                            <tr>
-                                <td>{{$video->name}}</td><td>{{$video->description}}</td><td>{{$video->url}}</td><td>{{$video->date_created}}</td><td><a href=""><i class="fa fa-open"></i></a></td><td><a href=""><i class="fa fa-trash"></i></a></td>
-                            </tr>
-
-                        @endforeach
-
-                        </tbody>
-
-                    </table>
-
-                    @else
-                           
-                        <br><br>   <p class="alert alert-info">The are no videos yet...</p>
-
-                    @endif
-
-
+            @endforeach
 
         </div>
 
