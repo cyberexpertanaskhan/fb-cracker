@@ -1,4 +1,5 @@
 @include('header')
+@include('videos/menu-bar')
 
 <!-- Simple Dashboard - START -->
 
