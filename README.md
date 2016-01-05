@@ -7,7 +7,7 @@ This application gives you the ability to:
 <li>List all videos in the database</li>
 <li>Add a new video to the database</li>
 <li>Edit information about video to the database</li>
-<li>Complete delete records of a video from the database</li>
+<li>Completely delete records of a video from the database</li>
 </ul>
 
 # Demo
@@ -16,9 +16,9 @@ A live demostration of this application is available at <a href="http://video-sh
 
 # Installation
 
-Getting to isntall so that you can run this application on your computer is more than easy:
+Getting to install so that you can run this application on your computer is more than easy:
 <ul>
-<li><a href="https://github.com/GeoffreyOliver/video-sharing/archive/master.zip">Download</a> the source code of this application to your computer.</li>
+<li><a href="https://github.com/geoffreyoliver/video-sharing/archive/master.zip">Download</a> the source code of this application to your computer.</li>
 <li>Extract the contents of the .zip file to the root of your localhost server.</li>
 <li>Define your valid database configuration settings in the config/database.php file</li>
 <li>Import the contents if the video-sharing.sql file that you downloaded with this application into your database</li>
