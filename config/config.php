@@ -41,7 +41,7 @@ return array(
 	/**
 	 *Set the Site Title
 	 */
-	'title' => 'Gliver Framework',
+	'title' => 'Video Sharing App',
 	/**
 	 *Set the protocol for this url
 	 */
