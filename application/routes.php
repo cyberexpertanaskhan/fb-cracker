@@ -16,11 +16,20 @@
 return array(
 
 /**
- *The home route.This route loads the home controller and getUser() method
- *@param int $id The user id for which to load profile
- *@param string $mode Whether to load profile in edit or view mode
+ *This route loads the videos controller and getEdit() method
+ *@param int $id The id of the video to edit
  */
-'adminhome' => 'Home@getUser/id/mode',
+'edit' => 'Videos@getEdit/id',
+/**
+ *This route loads the video for viewing and download
+ *@param int $id The id of the video to load
+ */
+'view' => 'Videos@view/id',
+/**
+ *This route loads the videos controller and getEdit() method
+ *@param int $id The id of the video to edit
+ */
+'delete' => 'Videos@delete/id',
 /**
  *This routes loads the controller that display blog posts
  *@param string $category The category from which to get blog content
