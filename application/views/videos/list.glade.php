@@ -30,7 +30,7 @@
                         @foreach($videos as $video)
 
                             <tr>
-                                <td>{{$video->name}}</td><td>{{$video->description}}</td><td>{{$video->url}}</td><td>{{$video->date_created}}</td><td><a href=""><i class="fa fa-open"></i></a></td><td><a href=""><i class="fa fa-trash"></i></a></td>
+                                <td><a href="{{Url::link('view')}}/{{$video->id}}">{{$video->name}}</a></td><td>{{$video->description}}</td><td><a href="{{$video->url}}">{{$video->url}}</a></td><td>{{$video->date_created}}</td><td><a href="{{Url::link('edit')}}/{{$video->id}}"><i class="fa fa-edit"></i></a></td><td><a href="{{Url::link('delete')}}/{{$video->id}}"><i class="fa fa-trash"></i></a></td>
                             </tr>
 
                         @endforeach
