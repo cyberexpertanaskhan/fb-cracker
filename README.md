@@ -1,27 +1,30 @@
-# Gliver PHP Framework
+# Video Sharing Application
 
-Gliver Framework offers you very lightweight and therefore lightning fast MVC environment for writing Web Applications using PHP! An open source framework for rapid application development. Gliver has almost no learning curve and is a best bet for newbies as well as seasoned developers.
+This application enables you to post and share youtube videos with others - giving them an option to download your video. Video sharing application is built in Gliver framework and MySQL database. Gliver is a light-weight fully mvc php framework with very small footprint on the server. MySQL is a fast free and open source Structured Query Language Relational Database Management System.
 
-To make things more interesting Gliver implements the latest technologies for example <a href="https://getcomposer.org/">Composer</a> for package management and use of <a href="https://packagist.org/">Packagist</a> libraries. Lightweight templating engine with efficient ORM - sure this is all you need for an amazing application. But still gives you flexibility to extend the core functionality with custom code...
+This application gives you the ability to:
+<ul>
+<li>List all videos in the database</li>
+<li>Add a new video to the database</li>
+<li>Edit information about video to the database</li>
+<li>Complete delete records of a video from the database</li>
+</ul>
 
-# Official Documentation
+# Demo
 
-The Official detailed documentation for the Gliver framework is available at <a href="http://getgliver.com/">Gliver Documentation Website</a>
-
-
-# Server Requirements
-
-Gliver Framework requires PHP version 5.4 or greater to run. In order to avoid broken functionality or code and opening security holes in your application, upgrade to version >=5.4.
-
+A live demostration of this application is available at <a href="http://video-sharing.getgliver.com">http://video-sharing.getgliver.com</a>
 
 # Installation
 
-For detailed installation instructions please visit the <a href="http://getgliver.com/home/installation">installation section</a>  of the Gliver User Guide.
-
-# Security Vulnerabilities
-
-The security of the information you handle with your application is at the core of Gliver. We have already addressed the major security vulnerabilites that are associated with PHP applications, but should you spot any vulnerability please send an email to geoffreybans@gmail.com and this would be fixed ASAP!
+Getting to isntall so that you can run this application on your computer is more than easy:
+<ul>
+<li><a href="https://github.com/GeoffreyOliver/video-sharing/archive/master.zip">Download</a> the source code of this application to your computer.</li>
+<li>Extract the contents of the .zip file to the root of your localhost server.</li>
+<li>Define your valid database configuration settings in the config/database.php file</li>
+<li>Import the contents if the video-sharing.sql file that you downloaded with this application into your database</li>
+<li>Say you installed your application in http://localhost/video-sharing, access your application using this url <a href="http://localhost/video-sharing">http://localhost/video-sharing</a></li>
+</ul>
 
 # License
 
-Gliver PHP MVC Framework is an open source software lincensed unders the <a href="http://opensource.org/licenses/MIT">MIT License</a>
+Videos Sharing Application lincensed unders the <a href="http://opensource.org/licenses/Apache-2.0">Apache License, Version 2</a>
