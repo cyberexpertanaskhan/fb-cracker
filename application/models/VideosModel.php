@@ -16,7 +16,7 @@ class VideosModel extends Model {
 	/**
 	*@var string The name of the table associated with this model
 	*/
-	protected static $table = 'users';	
+	protected static $table = 'vs_videos';	
 
 	/**
 	 *This method gets all the videos from the database
@@ -85,7 +85,7 @@ class VideosModel extends Model {
 	 *@param int $video_id The unique of the video to download
 	 *@return int The number of row affected by the delete query
 	 */
-	public static function delete($video_id)
+	public static function deleteVideo($video_id)
 	{
 		//excecute query to return all users
 		$delete = static::Query()->from(self::$table)->where('id = ?', $video_id)->delete();
