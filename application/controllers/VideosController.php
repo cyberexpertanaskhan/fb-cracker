@@ -12,6 +12,9 @@
  */
 
 use Drivers\Templates\View;
+use Models\VideosModel;
+use Helpers\Input\Input;
+use Helpers\Redirect\Redirect;
 
 class VideosController extends BaseController {
 
@@ -26,8 +29,11 @@ class VideosController extends BaseController {
 		//define the page title
 		$data['title'] = $this->site_title;
 
+		//get all the videos from the database
+		$data['videos'] = VideosModel::all();
+
 		//load the framework homepage
-		View::render('index', $data);
+		View::render('videos/list', $data);
 
 	}
 
@@ -43,7 +49,7 @@ class VideosController extends BaseController {
 		$data['title'] = $this->site_title;
 
 		//load the framework homepage
-		View::render('index', $data);
+		View::render('videos/addnew', $data);
 
 	}
 
@@ -58,8 +64,19 @@ class VideosController extends BaseController {
 		//define the page title
 		$data['title'] = $this->site_title;
 
-		//load the framework homepage
-		View::render('index', $data);
+		//get the input data from the array
+		$data = array(
+			'name' => Input::get('video_name'),
+			'description' => Input::get('video_description'),
+			'url' => Input::get('video_url'),
+			'comments' => Input::get('video_comments')
+		);
+
+		//call the model to save data
+		$saved = VideosModel::create($data);
+
+		//check if the save was successful and redirect to video lists page
+		if( $saved ) Redirect::to('videos');
 
 	}
 
@@ -74,8 +91,11 @@ class VideosController extends BaseController {
 		//define the page title
 		$data['title'] = $this->site_title;
 
+		//get information about this video
+		$data['video'] = VideosModel::getById(Input::get('id'));
+
 		//load the framework homepage
-		View::render('index', $data);
+		View::render('videos/edit', $data);
 
 	}
 
@@ -106,8 +126,11 @@ class VideosController extends BaseController {
 		//define the page title
 		$data['title'] = $this->site_title;
 
-		//load the framework homepage
-		View::render('index', $data);
+		//call model to delete this video
+		$delete = VideosModel::deleteVideo(Input::get('id'));
+
+		//check if query performed then redirect to home page
+		if($delete) Redirect::with(array('success_message' => 'Delete successful~'))->to('videos');
 
 	}
 	
@@ -122,8 +145,11 @@ class VideosController extends BaseController {
 		//define the page title
 		$data['title'] = $this->site_title;
 
+		//call model to get info about this video
+		$data['video'] = VideosModel::getById(Input::get('id'));
+
 		//load the framework homepage
-		View::render('index', $data);
+		View::render('videos/view', $data);
 
 	}
 
