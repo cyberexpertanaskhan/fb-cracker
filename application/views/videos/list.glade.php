@@ -1,4 +1,5 @@
 @include('header')
+@include('videos/menu-bar')
 
 <!-- Simple Dashboard - START -->
 
@@ -15,6 +16,7 @@
         </div>
 
         <div class="col-md-12 col-sm-12">
+                    @if(isset($success_message))<br> <p class="alert alert-success">{{$success_message}}</p>@endif
 
                     @if(isset($videos) AND count($videos) > 0)
 
