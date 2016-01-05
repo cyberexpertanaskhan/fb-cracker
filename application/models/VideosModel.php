@@ -82,16 +82,16 @@ class VideosModel extends Model {
 
 	/**
 	 *This method deletes record of a video from the database.
-	 *@param null
-	 *@return array The videos data in an array format
+	 *@param int $video_id The unique of the video to download
+	 *@return int The number of row affected by the delete query
 	 */
-	public static function all()
+	public static function delete($video_id)
 	{
 		//excecute query to return all users
-		$users = static::Query()->from(self::$table)->all();
+		$delete = static::Query()->from(self::$table)->where('id = ?', $video_id)->delete();
 
 		//return the rows found in object notation
-		return $users->result();
+		return $delete->affectedRows();
 
 	}
 
