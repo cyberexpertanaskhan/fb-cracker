@@ -32,6 +32,10 @@ class VideosController extends BaseController {
 		//get all the videos from the database
 		$data['videos'] = VideosModel::all();
 
+		//check for success message
+		if(Input::get('utrue')) $data['success_message'] = "Update Successful!";
+		if(Input::get('dtrue')) $data['success_message'] = "Delete Successful!";
+
 		//load the framework homepage
 		View::render('videos/list', $data);
 
@@ -61,9 +65,6 @@ class VideosController extends BaseController {
 	 */
 	public function postAddnew()
 	{
-		//define the page title
-		$data['title'] = $this->site_title;
-
 		//get the input data from the array
 		$data = array(
 			'name' => Input::get('video_name'),
@@ -107,11 +108,19 @@ class VideosController extends BaseController {
 	 */
 	public function postEdit()
 	{
-		//define the page title
-		$data['title'] = $this->site_title;
+		//create the video info to update
+		$video_info = array(
+			'name' => Input::get('video_name'),
+			'description' => Input::get('video_description'),
+			'url' => Input::get('video_url'),
+			'comments' => Input::get('video_comments')
+		);
 
-		//load the framework homepage
-		View::render('index', $data);
+		//call model to update the info
+		$updated = VideosModel::update(Input::get('id'), $video_info);
+
+		//check if update was successful and the redirect
+		if( $updated ) Redirect::with(array('utrue' => true))->to('videos');
 
 	}
 
@@ -123,14 +132,11 @@ class VideosController extends BaseController {
 	 */
 	public function delete()
 	{
-		//define the page title
-		$data['title'] = $this->site_title;
-
 		//call model to delete this video
 		$delete = VideosModel::deleteVideo(Input::get('id'));
 
 		//check if query performed then redirect to home page
-		if($delete) Redirect::with(array('success_message' => 'Delete successful~'))->to('videos');
+		if($delete) Redirect::with(array('dtrue' =>true))->to('videos');
 
 	}
 	
