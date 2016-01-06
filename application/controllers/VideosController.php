@@ -15,6 +15,7 @@ use Drivers\Templates\View;
 use Models\VideosModel;
 use Helpers\Input\Input;
 use Helpers\Redirect\Redirect;
+use Helpers\Path\Path;
 
 class VideosController extends BaseController {
 
@@ -65,12 +66,14 @@ class VideosController extends BaseController {
 	 */
 	public function postAddnew()
 	{
+
 		//get the input data from the array
 		$data = array(
 			'name' => Input::get('video_name'),
 			'description' => Input::get('video_description'),
 			'url' => Input::get('video_url'),
-			'comments' => Input::get('video_comments')
+			'comments' => Input::get('video_comments'),
+			'thumbnails' => json_encode(array(Input::get('thumbnail_1'),Input::get('thumbnail_2'),Input::get('thumbnail_3')))
 		);
 
 		//call the model to save data
@@ -113,7 +116,8 @@ class VideosController extends BaseController {
 			'name' => Input::get('video_name'),
 			'description' => Input::get('video_description'),
 			'url' => Input::get('video_url'),
-			'comments' => Input::get('video_comments')
+			'comments' => Input::get('video_comments'),
+			'thumbnails' => json_encode(array(Input::get('thumbnail_1'),Input::get('thumbnail_2'),Input::get('thumbnail_3')))
 		);
 
 		//call model to update the info
