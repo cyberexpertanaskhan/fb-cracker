@@ -17,10 +17,13 @@
 
         <div class="col-md-4 col-sm-4">
 
-            <form method="post" action="{{Url::link('videos/addnew')}}">
+            <form id="add_new_video" method="post" action="{{Url::link('videos/addnew')}}">
 
                 <div class="col-md-12"><br><br> <input name="video_name" type="text" class="form-control" placeholder="Name" required/></div>
-                <div class="col-md-12"><br><br> <input name="video_url" type="url" class="form-control" placeholder="Url" required/></div>
+                <input name="thumbnail_1" id="thumbnail_1" value="" type="hidden" />
+                <input name="thumbnail_2" id="thumbnail_2" value="" type="hidden" />
+                <input name="thumbnail_3" id="thumbnail_3" value="" type="hidden" />
+                <div class="col-md-12"><br><br> <input name="video_url" id="video_url" type="url" class="form-control" placeholder="Url" required/></div>
                 <div class="col-md-12"><br><br> <textarea class="form-control" name="video_description" placeholder="Description"></textarea></div>
                 <div class="col-md-12"><br><br> <input name="video_comments" type="text" class="form-control" placeholder="Comments" required/></div>
                 <div class="col-md-12"><br><br> <button name="submit" type="submit" class="btn btn-success"/>Save Video</button></div>
