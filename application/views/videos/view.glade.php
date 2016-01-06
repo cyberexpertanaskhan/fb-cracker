@@ -13,7 +13,9 @@
 
                 @foreach($video as $videoInfo)
 
-                <?php $thumbnail = json_decode($videoInfo->thumbnails, true); ?>
+                <?php $video_id = $videoInfo->id; ?>
+
+                <?php $thumbnail = $videoInfo->thumbnails; ?>
                 	<h2 class="text-center text-danger">Video Sharing Application</h2>
                 	<h3 class="text-center text-success">{{$videoInfo->name}}</h3>
 
@@ -44,26 +46,18 @@
 
             <h2 class="text-center text-warning">Click to Download Video Thumbnail</h2>
 
-            <a href="{{$thumbnail[0]}}" class="col-md-12 col-sm-12" id="thumbnail-1" title="Thumbnail 1" download="Thumbnail 1">
+            <div class="col-md-12 col-sm-12 img img-responsive" >
 
-                <img src="{{$thumbnail[0]}}" class="img img-responsive" />
+                <a href="{{Url::link('videos/download')}}/{{$video_id}}"  id="video-thumbnail" title="Download Thumbnail">
+                    <img style='z-index: 2; margin : auto; width:80px; position:absolute;top: 50px; left: 80px;' src="{{Url::assets('img/play_button.gif')}}" class="img img-responsive"/>
 
-            </a><br>
+                    <img style='' src="{{$thumbnail}}" class="img img-responsive" />
 
-            <h4 class="text-center text-warning">Smaller Thumbnails</h4>
+                </a>
 
-            <a href="{{$thumbnail[1]}}" class="col-md-12 col-sm-12" id="thumbnail-2" title="Thumbnail 1" download="Thumbnail 1"> 
-                
-                <img src="{{$thumbnail[1]}}" class="img img-responsive" />
+            </div>
 
-            </a><br><br>
-            <a href="{{$thumbnail[2]}}" class="col-md-12 col-sm-12" id="thumbnail-3" title="Thumbnail 1" download="Thumbnail 1">
-                
-                <img src="{{$thumbnail[2]}}" class="img img-responsive" />
-
-            </a><br>
-
-
+            
         </div>
 
 
